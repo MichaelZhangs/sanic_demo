@@ -1,6 +1,6 @@
  # sanic_pro
 
-基于apscheduler的redis定时功能任务框架
+基于apscheduler的redis 与 mongo的定时功能任务框架
 运行python3 main.py 启动
 如果出现 如下错误，需要修改redis.py 源码
 ![image](https://user-images.githubusercontent.com/58901344/164680516-ca37020c-eadc-4d85-86e0-5058d04fd761.png)
