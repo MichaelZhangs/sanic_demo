@@ -26,10 +26,13 @@ class Book(HTTPMethodView):
         data = request.args
         user_id = data.get("user_id")
         t = datetime.datetime.now()
-        exe_time = t + datetime.timedelta(minutes=2)
+        exe_time = t + datetime.timedelta(seconds=10)
         # print(exe_time)
         # exe_time = datetime.datetime.strptime(str(exe_time).split(".")[0], "%Y-%m-%d %H:%M:%S")
-        app.scheduler.add_job(self.send_hello, trigger="date", jobstore="redis", next_run_time=exe_time , args=(user_id,), id=user_id, replace_existing=True )
+        # 基于mongo
+        app.scheduler.add_job(self.send_hello, trigger="date", jobstore="mongo", next_run_time=exe_time,id=user_id, args=(user_id,), replace_existing=True )
+        # 基于redis
+        # app.scheduler.add_job(self.send_hello, trigger="date", jobstore="redis", next_run_time=exe_time,id=user_id, args=(user_id,), replace_existing=True )
 
         return json({"status": 200})
 
