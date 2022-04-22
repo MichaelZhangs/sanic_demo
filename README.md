@@ -5,7 +5,7 @@
 ![image](https://user-images.githubusercontent.com/58901344/164680516-ca37020c-eadc-4d85-86e0-5058d04fd761.png)
 
 找到"D:\python\lib\site-packages\apscheduler\jobstores\redis.py", 按如下修改
-if job.next_run_time:
-  # pipe.zadd(self.run_times_key,
-  #           {job.id: datetime_to_utc_timestamp(job.next_run_time)})
-  pipe.zadd(self.run_times_key, job.id, datetime_to_utc_timestamp(job.next_run_time))
+  if job.next_run_time:
+    # pipe.zadd(self.run_times_key,
+    #           {job.id: datetime_to_utc_timestamp(job.next_run_time)})
+    pipe.zadd(self.run_times_key, job.id, datetime_to_utc_timestamp(job.next_run_time))
