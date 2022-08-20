@@ -1,0 +1,6 @@
+sanic==19.12.2
+loguru
+apscheduler
+redis
+pymongo
+bson
